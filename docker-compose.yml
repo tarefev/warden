@@ -1,0 +1,15 @@
+# Для VM: база и API. Локально на Маке база стоит через Homebrew (см. README).
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: warden
+      POSTGRES_USER: warden
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-warden}
+    volumes:
+      - warden-db:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+volumes:
+  warden-db:

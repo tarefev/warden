@@ -1,0 +1,28 @@
+{
+  "name": "warden",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @warden/api",
+    "dev:web": "npm run dev -w @warden/web",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "tsc -b",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:generate": "npm run generate -w @warden/db",
+    "db:migrate": "npm run migrate -w @warden/db"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prettier": "^3.6.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
