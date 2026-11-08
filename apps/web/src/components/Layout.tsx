@@ -25,13 +25,16 @@ export default function Layout({ me }: { me: Me }) {
   return (
     <div className="min-h-screen">
       <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
-        <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
-          <NavLink to="/" className="text-lg font-semibold tracking-tight">
+        <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3">
+          <NavLink to="/issues?status=open" className="text-lg font-semibold tracking-tight">
             Warden
           </NavLink>
           <nav className="flex gap-1 text-sm">
-            <NavLink to="/" end={true} className={navClass}>
-              Главная
+            <NavLink to="/issues?status=open" className={navClass}>
+              Задачи
+            </NavLink>
+            <NavLink to="/sprints" className={navClass}>
+              Спринты
             </NavLink>
             {!!me.isAdmin && (
               <NavLink to="/admin/access" className={navClass}>
@@ -52,7 +55,7 @@ export default function Layout({ me }: { me: Me }) {
           </div>
         </div>
       </header>
-      <main className="mx-auto max-w-6xl px-4 py-6">
+      <main className="mx-auto max-w-7xl px-4 py-6">
         <Outlet />
       </main>
     </div>
